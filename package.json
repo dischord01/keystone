@@ -170,23 +170,6 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production node build.js | uglifyjs -mc -b beautify=false,semicolons=true > ./admin/public/js/packages.js",
-    "build-dev": "node build.js > ./admin/public/js/packages.js",
-    "test": "mocha && mocha --opts test/mocha-admin.opts",
-    "test-all": "npm test",
-    "test-unit": "node test/pretest.js && mocha",
-    "test-admin": "mocha --opts test/mocha-admin.opts",
-    "test-e2e": "node test/e2e/server.js --env default",
-    "test-e2e-bg": "cross-env KNE_SELENIUM_START_PROCESS=false && node test/e2e/server.js --env default",
-    "test-e2e-saucelabs": "if [ -n \"$SAUCE_ACCESS_KEY\" ]; then node test/e2e/server.js --env saucelabs-travis; fi",
-    "test-e2e-saucelabs-group": "if [ -n \"$SAUCE_ACCESS_KEY\" ]; then node test/e2e/server.js --env saucelabs-travis --group ./test/e2e/adminUI/tests/$GROUP; fi",
-    "lint": "eslint .",
-    "lint-fix": "eslint . --fix",
-    "watch": "watch 'clear && npm run lint' lib admin server test",
-    "pretest-cov": "npm run clean && npm run lint",
-    "current": "updtr",
-    "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha",
-    "posttest-cov": "if [ -n \"$CODECLIMATE_REPO_TOKEN\" ]; then codeclimate-test-reporter < coverage/lcov.info; fi",
-    "clean": "rimraf ./coverage",
-    "fields-explorer": "node ./fields/explorer/server.js"
+    "build-dev": "node build.js > ./admin/public/js/packages.js"
   }
 }
